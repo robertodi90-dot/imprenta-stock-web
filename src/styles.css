@@ -146,6 +146,22 @@ button {
   top: 1rem;
 }
 
+.events-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.events-toggle-btn {
+  background: #f0f3ff;
+  color: #283079;
+  border-color: #ccd6ff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
 .events-panel ul {
   list-style: none;
   padding: 0;
@@ -165,6 +181,16 @@ button {
   color: #3a4266;
   margin-bottom: 0.3rem;
   font-size: 0.88rem;
+}
+
+.events-collapsed-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px dashed #c8cede;
+  background: #f9fbff;
+  color: #5d6476;
+  font-size: 0.9rem;
 }
 
 .empty-state {
