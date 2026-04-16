@@ -115,10 +115,12 @@ function App() {
   return (
     <main className="app-shell">
       <section>
-        <h1>Stock de Imprenta</h1>
-        <p className="subtitle">
-          Consulta stock y eventos desde JSON generados de forma privada fuera del navegador.
-        </p>
+        <header className="page-header">
+          <h1>Stock de Imprenta</h1>
+          <p className="subtitle">
+            Consulta stock y eventos desde JSON generados de forma privada fuera del navegador.
+          </p>
+        </header>
         {dataMessage && <p className="empty-state">{dataMessage}</p>}
 
         <FiltersBar

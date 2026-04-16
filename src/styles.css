@@ -1,7 +1,7 @@
 :root {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: #141418;
-  background: #f5f7fb;
+  color: #0f172a;
+  background: #f4f7fb;
   line-height: 1.4;
 }
 
@@ -11,6 +11,8 @@
 
 body {
   margin: 0;
+  background: #f4f7fb;
+  color: #0f172a;
 }
 
 .app-shell {
@@ -29,21 +31,35 @@ p {
   margin: 0;
 }
 
+.page-header {
+  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid #1e40af;
+  box-shadow: 0 10px 22px rgba(30, 58, 138, 0.2);
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+}
+
 .subtitle {
-  margin-top: 0.5rem;
-  color: #525866;
+  margin-top: 0.55rem;
+  color: #dbeafe;
 }
 
 .panel {
-  background: #fff;
-  border: 1px solid #e8ebf2;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(22, 28, 45, 0.04);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .filters-panel {
   padding: 1rem;
   margin-top: 1rem;
+  border-left: 4px solid #1d4ed8;
 }
 
 .filters-grid {
@@ -55,7 +71,7 @@ p {
 
 label {
   font-size: 0.9rem;
-  color: #3f4553;
+  color: #475569;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -64,22 +80,47 @@ label {
 input,
 select,
 button {
-  border: 1px solid #d6dbea;
-  border-radius: 8px;
+  border: 1px solid #dbe3ef;
+  border-radius: 9px;
   padding: 0.55rem 0.65rem;
   font: inherit;
 }
 
+input,
+select {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+  border-color: #2563eb;
+}
+
 .clear-btn {
   align-self: end;
-  background: #f0f3ff;
-  color: #283079;
-  border-color: #ccd6ff;
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1e40af;
   cursor: pointer;
+  font-weight: 600;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.clear-btn:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
 }
 
 .products-header {
   margin: 1rem 0;
+}
+
+.products-header h2 {
+  color: #1e3a8a;
 }
 
 .products-grid {
@@ -89,16 +130,16 @@ button {
 }
 
 .product-card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 12px;
   padding: 0.95rem;
-  border: 1px solid #e8ebf2;
-  box-shadow: 0 1px 6px rgba(22, 28, 45, 0.04);
+  border: 1px solid #dbe3ef;
+  box-shadow: 0 1px 6px rgba(15, 23, 42, 0.05);
 }
 
 .product-card.low-stock {
-  border-color: #ffb4b4;
-  background: #fff7f7;
+  border-color: #f5b26f;
+  box-shadow: 0 1px 8px rgba(194, 108, 15, 0.12);
 }
 
 .product-header {
@@ -110,15 +151,20 @@ button {
 .product-code {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #445;
+  color: #334155;
 }
 
 .badge {
   font-size: 0.75rem;
-  background: #ffebeb;
-  color: #a32222;
+  background: #ffedd5;
+  color: #9a3412;
+  border: 1px solid #fdba74;
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
+}
+
+.product-card h3 {
+  color: #0f172a;
 }
 
 .product-card dl {
@@ -129,7 +175,7 @@ button {
 }
 
 .product-card dt {
-  color: #62697a;
+  color: #64748b;
   font-size: 0.78rem;
 }
 
@@ -137,6 +183,7 @@ button {
   margin: 0.1rem 0 0;
   font-size: 0.95rem;
   font-weight: 600;
+  color: #0f172a;
 }
 
 .events-panel {
@@ -144,6 +191,11 @@ button {
   height: fit-content;
   position: sticky;
   top: 1rem;
+  border-top: 4px solid #0f766e;
+}
+
+.events-panel h2 {
+  color: #0f766e;
 }
 
 .events-panel ul {
@@ -155,25 +207,43 @@ button {
 }
 
 .events-panel li {
-  border: 1px solid #e8ebf2;
+  border: 1px solid #dbe3ef;
   border-radius: 10px;
   padding: 0.65rem;
-  background: #f9fbff;
+  background: #f8fafc;
 }
 
 .event-meta {
-  color: #3a4266;
+  color: #334155;
   margin-bottom: 0.3rem;
   font-size: 0.88rem;
+}
+
+.event-item.entrada {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #14532d;
+}
+
+.event-item.salida {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #7f1d1d;
+}
+
+.event-item.ajuste {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #78350f;
 }
 
 .empty-state {
   grid-column: 1 / -1;
   padding: 1rem;
-  background: #fff;
+  background: #ffffff;
   border-radius: 10px;
-  border: 1px dashed #c8cede;
-  color: #5d6476;
+  border: 1px dashed #dbe3ef;
+  color: #475569;
 }
 
 @media (max-width: 900px) {
