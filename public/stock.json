@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "codigo": "PAP-001",
+    "descripcion": "Papel Couché Brillante",
+    "existencia": 12,
+    "precio": 24.5,
+    "medida": "70x100",
+    "textura": "Lisa",
+    "gramaje": 150
+  },
+  {
+    "id": 2,
+    "codigo": "PAP-002",
+    "descripcion": "Papel Bond Blanco",
+    "existencia": 5,
+    "precio": 12,
+    "medida": "66x96",
+    "textura": "Mate",
+    "gramaje": 90
+  }
+]
