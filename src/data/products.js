@@ -1,4 +1,4 @@
-export const products = [
+export const fallbackProducts = [
   {
     id: 1,
     codigo: 'PAP-001',

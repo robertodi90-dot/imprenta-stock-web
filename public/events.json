@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "tipo": "Entrada",
+    "fecha": "2026-04-16 09:15",
+    "texto": "Ingreso de 20 pliegos de Papel Couché Brillante"
+  },
+  {
+    "id": 2,
+    "tipo": "Alerta",
+    "fecha": "2026-04-16 13:20",
+    "texto": "Stock bajo detectado en Papel Bond Blanco"
+  }
+]
