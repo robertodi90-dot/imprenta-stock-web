@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react';
 
 const SESSION_STORAGE_KEY = 'showEventsPanel';
 
+const hasSessionStorage = typeof window !== 'undefined' && window.sessionStorage;
+
 const getInitialShowEvents = () => {
+  if (!hasSessionStorage) return true;
+
   const persistedValue = window.sessionStorage.getItem(SESSION_STORAGE_KEY);
   if (persistedValue === null) return true;
+
   return persistedValue === 'true';
 };
 
@@ -12,6 +17,8 @@ const EventsPanel = ({ events }) => {
   const [showEvents, setShowEvents] = useState(getInitialShowEvents);
 
   useEffect(() => {
+    if (!hasSessionStorage) return;
+
     window.sessionStorage.setItem(SESSION_STORAGE_KEY, String(showEvents));
   }, [showEvents]);
 
