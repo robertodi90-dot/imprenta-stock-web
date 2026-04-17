@@ -49,6 +49,16 @@ p {
   color: #dbeafe;
 }
 
+.last-update {
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  color: #334155;
+  font-size: 0.85rem;
+}
+
 .panel {
   background: #ffffff;
   border: 1px solid #dbe3ef;
@@ -75,6 +85,20 @@ label {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.stock-toggle {
+  align-self: end;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.stock-toggle input {
+  width: 1rem;
+  height: 1rem;
 }
 
 input,
@@ -135,11 +159,32 @@ button:focus-visible {
   padding: 0.95rem;
   border: 1px solid #dbe3ef;
   box-shadow: 0 1px 6px rgba(15, 23, 42, 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
 
-.product-card.low-stock {
-  border-color: #f5b26f;
-  box-shadow: 0 1px 8px rgba(194, 108, 15, 0.12);
+.product-card:hover {
+  transform: translateY(-1px);
+}
+
+.product-card:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.product-card.stock-normal {
+  border-color: #86efac;
+  box-shadow: 0 1px 8px rgba(22, 163, 74, 0.1);
+}
+
+.product-card.stock-low {
+  border-color: #fcd34d;
+  box-shadow: 0 1px 8px rgba(217, 119, 6, 0.12);
+}
+
+.product-card.stock-critical {
+  border-color: #fca5a5;
+  box-shadow: 0 1px 8px rgba(220, 38, 38, 0.12);
 }
 
 .product-header {
@@ -156,11 +201,28 @@ button:focus-visible {
 
 .badge {
   font-size: 0.75rem;
-  background: #ffedd5;
-  color: #9a3412;
-  border: 1px solid #fdba74;
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+
+.badge.stock-normal {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.badge.stock-low {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.badge.stock-critical {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
 }
 
 .product-card h3 {
@@ -174,12 +236,14 @@ button:focus-visible {
   gap: 0.4rem;
 }
 
-.product-card dt {
+.product-card dt,
+.detail-grid dt {
   color: #64748b;
   font-size: 0.78rem;
 }
 
-.product-card dd {
+.product-card dd,
+.detail-grid dd {
   margin: 0.1rem 0 0;
   font-size: 0.95rem;
   font-weight: 600;
@@ -237,6 +301,51 @@ button:focus-visible {
   color: #78350f;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 30;
+}
+
+.modal-panel {
+  width: min(560px, 100%);
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  box-shadow: 0 24px 40px rgba(15, 23, 42, 0.24);
+  padding: 1rem;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.modal-header h3 {
+  color: #1e3a8a;
+}
+
+.modal-close {
+  cursor: pointer;
+  background: #eff6ff;
+  border-color: #c7d2fe;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
 .empty-state {
   grid-column: 1 / -1;
   padding: 1rem;
@@ -253,5 +362,11 @@ button:focus-visible {
 
   .events-panel {
     position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
   }
 }
