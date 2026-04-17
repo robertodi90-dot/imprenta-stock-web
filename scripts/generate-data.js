@@ -263,10 +263,16 @@ const eventsRows = eventsSheet ? xlsx.utils.sheet_to_json(eventsSheet, { defval:
 
 const stock = parseStock(stockRows, STOCK_SHEET_NAME);
 const events = parseEvents(eventsRows, EVENTS_SHEET_NAME);
+const dataMeta = {
+  generatedAt: new Date().toISOString(),
+  sourceFile: path.basename(excelPath),
+};
 
 fs.mkdirSync(publicDir, { recursive: true });
 fs.writeFileSync(path.join(publicDir, 'stock.json'), JSON.stringify(stock, null, 2), 'utf8');
 fs.writeFileSync(path.join(publicDir, 'events.json'), JSON.stringify(events, null, 2), 'utf8');
+fs.writeFileSync(path.join(publicDir, 'data-meta.json'), JSON.stringify(dataMeta, null, 2), 'utf8');
 
 console.log(`[OK] Generados ${stock.length} registros en public/stock.json`);
 console.log(`[OK] Generados ${events.length} registros en public/events.json`);
+console.log(`[OK] Marca de actualización en public/data-meta.json (${dataMeta.generatedAt})`);

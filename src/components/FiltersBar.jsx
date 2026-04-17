@@ -9,6 +9,8 @@ const FiltersBar = ({
   onGramajeChange,
   sortBy,
   onSortChange,
+  onlyWithStock,
+  onOnlyWithStockChange,
   onClear,
   medidas,
   texturas,
@@ -70,6 +72,15 @@ const FiltersBar = ({
           <option value="existencia_desc">Existencia (mayor a menor)</option>
           <option value="precio_asc">Precio (menor a mayor)</option>
         </select>
+      </label>
+
+      <label className="stock-toggle">
+        <input
+          type="checkbox"
+          checked={onlyWithStock}
+          onChange={(event) => onOnlyWithStockChange(event.target.checked)}
+        />
+        <span>Mostrar solo con stock</span>
       </label>
 
       <button type="button" className="clear-btn" onClick={onClear}>
